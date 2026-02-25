@@ -1,0 +1,125 @@
+body {
+    font-family: "Times New Roman", Georgia, Serif;
+    background-image: url('images/IMG_20240706_130715_438.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 5px;
+}
+
+/* Make content readable over background */
+.w3-content, .w3-container, .w3-bar, footer {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.w3-top .w3-bar {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* 3D hover effect */
+header img, .threeD {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+header img:hover, .threeD:hover {
+    transform: rotateY(20deg) rotateX(10deg) scale(1.05);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-img:hover {
+    transform: scale(1.05);
+}
+/* MOBILE-FRIENDLY IMAGE FIXES */
+@media (max-width: 768px) {
+    /* Header image - full viewport height */
+    header img {
+        height: 60vh !important; /* 60% viewport height */
+        width: 100% !important;
+        object-fit: cover;
+    }
+
+    /* About/Services images - flexible height */
+    .w3-image {
+        height: auto !important; /* Auto height = no crop */
+        min-height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* Portfolio - smaller grid */
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 columns mobile */
+        gap: 10px;
+    }
+    .portfolio-img {
+        height: 200px !important; /* Smaller fixed height */
+    }
+
+    /* Gallery - 1 column mobile */
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+    }
+    .gallery-img {
+        height: 250px !important;
+    }
+
+    /* Content padding */
+    .w3-padding-64 { padding-top: 40px !important; padding-bottom: 40px !important; }
+    .w3-content { padding: 10px !important; }
+}
+
+/* Desktop tweaks */
+@media (min-width: 769px) {
+    .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+}
+
+/* Universal image safety */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
