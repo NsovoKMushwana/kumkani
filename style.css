@@ -1,125 +1,76 @@
-body {
-    font-family: "Times New Roman", Georgia, Serif;
-    background-image: url('images/IMG_20240706_130715_438.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    color: #000;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", serif;
-    letter-spacing: 5px;
-}
-
-/* Make content readable over background */
-.w3-content, .w3-container, .w3-bar, footer {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 5px;
-    padding: 20px;
-}
-
-.w3-top .w3-bar {
-    background-color: rgba(255, 255, 255, 0.95);
-}
-
-/* 3D hover effect */
-header img, .threeD {
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-}
-header img:hover, .threeD:hover {
-    transform: rotateY(20deg) rotateX(10deg) scale(1.05);
-}
-
-/* Gallery Grid */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.gallery-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.gallery-img:hover {
-    transform: scale(1.05);
-}
-
-/* Portfolio Grid */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.portfolio-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.portfolio-img:hover {
-    transform: scale(1.05);
-}
-/* MOBILE-FRIENDLY IMAGE FIXES */
 @media (max-width: 768px) {
-    /* Header image - full viewport height */
-    header img {
-        height: 60vh !important; /* 60% viewport height */
+    /* Container full width */
+    .w3-content {
+        max-width: 100% !important;
+        padding: 10px !important;
+        margin: 0 !important;
+    }
+
+    /* Stack layout vertically */
+    .container, .w3-row {
+        flex-direction: column !important;
+    }
+
+    /* Pricing cards - SINGLE COLUMN */
+    .w3-row-padding > .w3-third {
+        flex: none !important;
         width: 100% !important;
-        object-fit: cover;
+        max-width: 100% !important;
+        margin-bottom: 20px !important;
     }
 
-    /* About/Services images - flexible height */
-    .w3-image {
-        height: auto !important; /* Auto height = no crop */
-        min-height: 250px;
-        width: 100%;
-        object-fit: cover;
+    /* Reduce padding on mobile */
+    .w3-padding-64 {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
     }
 
-    /* Portfolio - smaller grid */
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr) !important; /* 2 columns mobile */
-        gap: 10px;
-    }
-    .portfolio-img {
-        height: 200px !important; /* Smaller fixed height */
+    /* Navbar full width */
+    .w3-bar {
+        padding: 10px !important;
+        font-size: 14px !important;
     }
 
-    /* Gallery - 1 column mobile */
-    .gallery-grid {
-        grid-template-columns: 1fr !important;
-        gap: 10px;
-    }
-    .gallery-img {
-        height: 250px !important;
+    /* Images responsive */
+    img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 300px !important;
     }
 
-    /* Content padding */
-    .w3-padding-64 { padding-top: 40px !important; padding-bottom: 40px !important; }
-    .w3-content { padding: 10px !important; }
+    /* Header image */
+    header {
+        height: 50vh !important;
+    }
+    header img {
+        height: 50vh !important;
+    }
+
+    /* Form full width */
+    .w3-container form {
+        width: 100% !important;
+        padding: 20px !important;
+    }
 }
 
-/* Desktop tweaks */
-@media (min-width: 769px) {
-    .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+/* Small phones */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px !important;
+    }
+    h1 { font-size: 1.8em !important; }
+    .w3-padding-64 { padding: 20px 10px !important; }
 }
 
-/* Universal image safety */
-img {
+/* Ensure all images fit */
+img, .w3-image {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/* Force responsive grids */
+.portfolio-grid, .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
 }
